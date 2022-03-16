@@ -1,0 +1,11 @@
+class Solution:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        trust_number = [0] * (n+1)
+        for a,b in trust:
+            trust_number[a] -= 1 
+            trust_number[b] += 1 
+            
+        for i in range(1,n+1): 
+            if trust_number[i] == n-1:
+                return i 
+        return -1

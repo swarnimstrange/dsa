@@ -1,0 +1,16 @@
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        arr = []
+        for email in emails:
+            x = email.find("@")
+            new = email[:x]
+            old = email[x:]
+            if "+" in email:
+                y = new.find("+")
+                new = new[:y]
+            if '.' in new:
+                new = new.replace(".","")
+            full_n_final = new + old
+            if full_n_final not in arr:
+                arr.append(full_n_final)
+        return len(arr)

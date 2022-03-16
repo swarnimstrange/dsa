@@ -1,0 +1,10 @@
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        my_dict = {}
+        for i in range(len(list1)):
+            for j in range(len(list2)):
+                if list1[i]==list2[j]:
+                    my_dict.update({list1[i]:i+j })
+        temp = min(my_dict.values())
+        res = [key for key in my_dict if my_dict[key] == temp]
+        return res

@@ -1,0 +1,10 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        sum = 0
+        for i in range(1,len(height)-1):
+            x = min(max(height[0:i]),max(height[i+1:]))
+            if x>height[i]:
+                sum+= abs(x-height[i])
+            else:
+                sum+=0
+        return sum
